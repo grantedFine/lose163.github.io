@@ -1,2 +1,133 @@
-# lose163.github.io
-hello,hello!
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/jquery-ui.min.css">
+        <style media="screen">
+            .gambling {
+                height: 200px;
+                text-align: center;
+                font-size: 50px;
+            }
+            .draggable {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 100px;
+                float: left;
+            }
+            .draggable span {
+                display: none;
+            }
+            .draggable1 {
+                background-color: #e8e5bc;
+            }
+            .draggable2 {
+                background-color: green;
+            }
+            .droppable {
+                background: #eee;
+                border-radius: 50%;
+                float: left;
+                text-align: center;
+            }
+            .droppable1 {
+                width: 300px;
+                height: 300px;
+                line-height: 300px;
+            }
+            .droppable2 {
+                width: 150px;
+                height: 150px;
+                line-height: 150px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="gambling">
+            猜单双
+        </div>
+        <div class="draggable draggable1">米色<span></span>
+        </div>
+        <div class="draggable draggable2">绿色<span></span>
+        </div>
+        <div class="droppable droppable1">大</div>
+        <div class="droppable droppable2">小</div>
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript">
+            var got1 = false,
+                got2 = false;
+            var flag1 = Math.floor(Math.random() * 6) > 2;
+            var flag2 = Math.floor(Math.random() * 6) > 2;
+            if (flag1) {
+                $('.draggable1 span').text('big');
+            } else {
+                $('.draggable1 span').text('small');
+            }
+            if (flag2) {
+                $('.draggable2 span').text('big');
+            } else {
+                $('.draggable2 span').text('small');
+            }
+            $('.draggable').draggable();
+            $('.droppable1').droppable({
+                drop: function(event, ui) {
+                    if (ui.draggable.hasClass('draggable1')) {
+                        if (flag1) {
+                            got1 = true;
+                        }
+                    }
+                    if (ui.draggable.hasClass('draggable2')) {
+                        if (flag2) {
+                            got2 = true;
+                        }
+                    }
+                    if (got1 && got2) {
+                        $('body').css('background', 'red');
+                    }
+                },
+                out: function(event, ui) {
+                    if (ui.draggable.hasClass('draggable1')) {
+                        got1 = false;
+                    }
+                    if (ui.draggable.hasClass('draggable2')) {
+                        got2 = false;
+                    }
+                    $('body').css('background', '#fff');
+                }
+            })
+            $('.droppable2').droppable({
+                drop: function(event, ui) {
+                    if (ui.draggable.hasClass('draggable1')) {
+                        if (!flag1) {
+                            got1 = true;
+                        }
+                    }
+                    if (ui.draggable.hasClass('draggable2')) {
+                        if (!flag2) {
+                            got2 = true;
+                        }
+                    }
+                    if (got1 && got2) {
+                        $('body').css('background', 'red');
+                    }
+                },
+                out: function(event, ui) {
+                    if (ui.draggable.hasClass('draggable1')) {
+                        got1 = false;
+                    }
+                    if (ui.draggable.hasClass('draggable2')) {
+                        got2 = false;
+                    }
+                    $('body').css('background', '#fff');
+                }
+            })
+        </script>
+    </body>
+</html>
