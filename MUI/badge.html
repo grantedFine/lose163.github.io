@@ -69,12 +69,17 @@
                 <div style="text-align:center;">
                     <a class="mui-btn mui-btn-primary ti">提交</a>
                 </div>
+                <div style="text-align:center;">
+                    <a class="mui-btn mui-btn-primary de">确认删除</a>
+                </div>
             </div>
         </div>
         <script type="text/javascript">
+        /*eslint-disable*/
             mui.init({
                 swipeBack: true //启用右滑关闭功能
             });
+
             mui(document.body).on('tap', '.mui-btn-group1', function() {
                 mui(this).button('loading');
                 setTimeout(function() {
@@ -87,6 +92,7 @@
                     : "false";
                 this.previousElementSibling.innerText = "checked：" + value;
             });
+
             mui('.group2').on('tap','.ti',function(){
                 var str='';
                 mui('.group2 input').each(function(index,item){
@@ -94,8 +100,21 @@
                         str+=item.previousElementSibling.innerText+' '
                     }
                 })
-                alert('你的兴趣爱好是：'+str)
+                mui.alert('你的兴趣爱好是：'+str,'hello','goodbye')
             })
+
+            mui('.group2').on('tap','.de',function(){
+                mui.confirm('确定删除兴趣爱好吗？','tips',['还是留着吧','不要了'],function(e){
+                    if(e.index==1){
+                        mui('.group2 input').each(function(index,item){
+                        if(item.checked){
+                            item.parentNode.remove();
+                        }
+                    })
+                }
+            })
+        })
+        /*eslint-disable*/
         </script>
     </body>
 </html>
