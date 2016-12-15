@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>off-canvas</title>
+        <link rel="stylesheet" href="css/mui.min.css">
+    </head>
+    <body>
+        <div class="mui-off-canvas-wrap mui-draggable">
+            <aside id="offCanvas" class="mui-off-canvas-left">
+                <div class="mui-scroll-wrapper">
+                    <div class="mui-scroll">
+                        <ul class="mui-table-view mui-table-view-inverted">
+                            <li class="mui-table-view-cell">
+                                <a href="javascript:;">Item 1</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a href="javascript:;">Item 2</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a href="javascript:;">Item 3</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a href="javascript:;">Item 4</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a href="javascript:;">Item 5</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a href="javascript:;">Item 6</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a href="javascript:;">Item 7</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <div class="mui-inner-wrap">
+                <header class="mui-bar mui-bar-nav">
+                    <a href="#offCanvas" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+                    <h1 class="mui-title">标题</h1>
+                </header>
+                <div class="mui-content mui-scroll-wrapper">
+                    <div class="mui-scroll"></div>
+                </div>
+            </div>
+            <script src="js/mui.min.js" charset="utf-8"></script>
+            <script type="text/javascript">
+                /*eslint-disable*/
+                // mui('.mui-inner-wrap').on('tap', 'a', function() {
+                //     mui('.mui-off-canvas-wrap').offCanvas().toggle();
+                // });
+            </script>
+        </body>
+    </html>
