@@ -7,7 +7,6 @@
     <title></title>
     <!--标准mui.css-->
     <link rel="stylesheet" href="css/mui.min.css">
-    <link rel="stylesheet" href="css/mui.picker.min.css">
     <!--<link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css" />-->
     <style>
         .mui-btn {
@@ -57,32 +56,48 @@
         </div>
     </div>
     <script src="js/mui.min.js"></script>
-    <script src="js/mui.picker.min.js" charset="utf-8"></script>
     <script>
-    /*global mui*/
         (function($, doc) {
             $.init();
             $.ready(function() {
                 //普通示例
                 var userPicker = new $.PopPicker();
                 userPicker.setData([{
-                    value: 'cbd.jpg',
+                    value: 'ywj',
                     text: '董事长 叶文洁'
                 }, {
-                    value: 'logo.png',
+                    value: 'aaa',
                     text: '总经理 艾AA'
                 }, {
-                    value: 'muwu.jpg',
+                    value: 'lj',
                     text: '罗辑'
                 }, {
-                    value: 'shuijiao.jpg',
+                    value: 'ymt',
                     text: '云天明'
+                }, {
+                    value: 'shq',
+                    text: '史强'
+                }, {
+                    value: 'zhbh',
+                    text: '章北海'
+                }, {
+                    value: 'zhy',
+                    text: '庄颜'
+                }, {
+                    value: 'gyf',
+                    text: '关一帆'
+                }, {
+                    value: 'zhz',
+                    text: '智子'
+                }, {
+                    value: 'gezh',
+                    text: '歌者'
                 }]);
                 var showUserPickerButton = doc.getElementById('showUserPicker');
                 var userResult = doc.getElementById('userResult');
-                showUserPickerButton.addEventListener('tap', function() {
+                showUserPickerButton.addEventListener('tap', function(event) {
                     userPicker.show(function(items) {
-                        userResult.innerHTML = '<img src="images/'+items[0].value+'">';
+                        userResult.innerText = JSON.stringify(items[0]);
                         //返回 false 可以阻止选择框的关闭
                         //return false;
                     });
@@ -90,6 +105,7 @@
 
             })
         })(mui, document);
+
     </script>
 </body>
 

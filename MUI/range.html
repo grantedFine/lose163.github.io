@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/mui.min.css">
+</head>
+<body>
+    <div class="mui-input-row mui-input-range">
+        <label for=""></label>
+        <input type="range" class="range">
+    </div>
+    <script src="js/mui.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    document.querySelector('.mui-input-row').addEventListener('input',function(){
+        if(document.getElementsByClassName('range')[0].value%2==0){
+            document.body.style.backgroundColor='red';
+        }else{
+            document.body.style.backgroundColor='green';
+        }
+    })
+    console.log(Element.prototype.hasOwnProperty('prepend'))
+    </script>
+</body>
+</html>

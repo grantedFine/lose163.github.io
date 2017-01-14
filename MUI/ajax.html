@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/mui.min.css">
+</head>
+<body>
+    <div class="info"></div>
+    <script src="js/mui.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        /*global mui*/
+        mui.ajax({
+            url:'https://api.github.com/search/repositories?q=javascript&sort=stars',
+            type:'GET',
+            error:function(error){
+                alert(error)
+            },
+            success:function(data){
+                data=JSON.stringify(data)
+                console.log(data)
+            }
+        })
+    </script>
+</body>
+</html>
